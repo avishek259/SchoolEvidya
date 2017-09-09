@@ -1,0 +1,98 @@
+
+
+	<ion-content class="padding has-tabs" overflow-scroll="false" has-bouncing="false">
+	
+   <!-- <ion-header-bar class="bar-positive">
+      <h1 class="title">Parents Tasks</h1>
+    </ion-header-bar> -->
+	
+	<div class="mt-80">
+	
+    <ion-list >
+       <div ng-repeat="group in groups track by $index">
+          <ion-item class="item-stable "
+                    ng-click="toggleGroup(group)"
+                    ng-class="{active: isGroupShown(group) }"  >
+              <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+              
+            {{group.name}}
+            
+              <i class="icon" ng-class="group.name=='Leave Request' ? 'ion-pull-request' : 'ion-android-notifications-none'"></i>
+                        
+          </ion-item>
+          <ion-item class="item-accordion"
+                    ng-show="isGroupShown(group)">
+            <div ng-show="group.name=='Leave Request'" >
+                  <label class="item item-input mt-16">
+                    <input type="text" placeholder="Leave Subject">
+                  </label>
+
+                  <div class="item item-input item-select">
+                      <span class="input-label">
+                          Leave Type
+                      </span>
+                      <select class="pr-40p">
+                          <option selected>Sick Leave</option>
+                          <option>Planned Leave</option>
+                                               
+                      </select> 
+
+
+                  </div>
+
+                  <ion-item>
+                    <textarea placeholder="Leave Comments" class="width-full"></textarea>
+                  </ion-item>
+
+                  <label class="item item-input">
+                    <input type="text" placeholder="No of Days" ng-model="noofDays">
+                  </label>
+
+                  <label class="item item-input">
+                    <span class="input-label">{{noofDays==1 || noofDays==undefined? 'Leave Date': 'From Date'}}</span>
+                    <input type="date" ng-model="fromDate" >
+                  </label>
+
+                  <label class="item item-input" ng-show="noofDays>1">
+                    <span class="input-label">To Date</span>
+                   <input type="date" ng-model="toDate">
+                  </label>
+
+                    <button class="button button-positive sendButtonAlign" ng-click="applyLeave()">
+                      Send
+                    </button>
+
+                    
+            </div> 
+
+
+            <div ng-show="group.name=='Notification History'"  class="mt-16 mb-16" >
+              <table cellspacing="0" cellpadding="0">
+              <tr>
+                <th>Type</th>
+                <th>Subject</th>
+                <th>Date</th>
+              </tr>
+                 
+                  <tr href="#/main/tabs/notifications/0" ng-click="openModal();" style="margin-top:3px;" ng-repeat="item in items track by item.id" >
+                    <td class="ml-16 center"> <i class="icon ion-email" style="width:20%"></i> </td> 
+                    <td style="width:60%;line-height:initial;"><div style="padding-left:2rem;" class="paddinttbl center"><a href="">Diwali Holidays notification...</a></div> </td> 
+                    <td class="center"> <span class="" style="width:20%;">{{sampledate | date:'dd MMM'}} </span> </td> 
+                  </tr> 
+             
+              </table>
+
+            </div> 
+
+          </ion-item>
+        </div> 
+		
+      </ion-list>
+    </div>
+
+  </ion-content>
+
+
+  
+  
+

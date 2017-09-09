@@ -1,0 +1,68 @@
+<ion-view view-title="Login" name="login-view" class="bg-image">
+  
+<ion-header-bar align-title="center" class="bar-positive">
+  <!--<div class="buttons">
+    <button class="button" ng-click="doSomething()">Left Button</button>
+  </div> -->
+  <h1 class="title"><strong>Evidya Online</strong>
+  </h1>
+  
+  <div class="">
+    <img class="title-image logo" src="app/img/logo.png" />
+  </div>
+
+</ion-header-bar>
+
+  <ion-content class="mt-40p has-footer" overflow-scroll="false" has-bouncing="false"   >
+      <div class="ml-10p new-to-evidya">Already a member?</div>
+
+      <form name="loginuserForm" ng-submit="submitForm()" novalidate >
+      <div class="list list-inset">
+
+          <label class="item item-input">
+            <div class="form-group" ng-class="{ 'has-error' : loginuserForm.username.$invalid && !loginuserForm.username.$pristine }">
+              <input type="text" name="username" placeholder="Username" ng-model="loginObj.username" required class="form-control">
+               <p ng-show="loginuserForm.username.$invalid && !loginuserForm.username.$pristine" class="help-block colortxt-red">Your username is required.</p>
+               </div>
+          </label>
+          <label class="item item-input">
+            <div class="form-group" ng-class="{ 'has-error' : loginuserForm.password.$invalid && !loginuserForm.password.$pristine }">
+
+            <input type="password" name="password" placeholder="Password" ng-model="loginObj.password" class="form-control" required>
+             <p ng-show="loginuserForm.password.$invalid && !loginuserForm.password.$pristine" class="help-block colortxt-red">Your Password is required.</p>
+           </div>
+          </label>
+
+         
+          
+          <!-- <label>
+            <ion-checkbox ng-checked="true" ng-model="remember.val">Remember me
+            </ion-checkbox>
+          </label> -->
+      </div>
+      
+      <button class=" ml-10p button button-block button-calm width90p" ng-click="login()" ng-disabled="loginuserForm.$invalid">Login</button>
+      </form>
+      <a href="#" ng-click="forgotPassword.show();" class="underline"><span class="ml-10p txt-color-fp">Forgot Password ?</span></a>
+      <div class="mt-6">
+        <!-- <ul>
+        <li class="mt-top1rem"><a href="#" ng-click="openModal();" ><span class="fs-1rem txt-color">
+        <strong>New User</strong></span></a></li>
+        <li class="mt-top1rem"><a href="#" ng-click="forgotPassword.show();" ><span class="fs-1rem txt-color"><strong>Forgot Password ?</strong></span></a></li>
+      </ul> -->
+      <div class="ml-10p new-to-evidya">New to Evidya?</div>
+      <button class=" ml-10p button button-block button-calm width90p" ng-click="openModal();">Sign Up</button>
+
+      </div>
+  </ion-content>
+
+  <!-- <ion-footer-bar align-title="left" class="bar-positive "> -->
+<!--  <div class="buttons">
+    <button class="button">Left Button</button>
+  </div> -->
+  <!-- <h1 class="title fs-16">&copy; 2017 eVidya Online.All Rights Reserved.</h1> -->
+ <!-- <div class="buttons" ng-click="doSomething()">
+    <button class="button">Right Button</button>
+  </div> -->
+<!-- </ion-footer-bar> -->
+</ion-view>

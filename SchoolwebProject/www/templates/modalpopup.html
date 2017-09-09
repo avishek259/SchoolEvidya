@@ -1,0 +1,32 @@
+
+      <ion-modal-view>
+
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">Information</h1>
+          <button class="button button-clear button-primary" ng-click="notificationmodal.hide()">Cancel</button>
+        </ion-header-bar>
+        <ion-content class="padding background" >
+
+          <div class=" image-modal transparent" overflow-scroll="false" >
+                 <ion-slide-box on-slide-changed="slideChanged(index)" 
+                               show-pager="true" does-continue="true" slide-interval="1500"
+                     auto-play="true">
+                    <ion-slide ng-repeat="oImage in aImages">
+                      <img ng-src="{{oImage.src}}" class="fullscreen-image" />
+                     <p class="info">{{oImage.msg}}</p>
+                    </ion-slide>
+                 </ion-slide-box>
+          </div> 
+       
+          <div class="center">
+
+           <h3>Diwali Celebrations</h3>
+             
+             <p> Diwali is a Festival of Colors , Crackers and Sweets.
+              On this very Day Divine God Ram reached Ayodhya after victory over Lanka king Ravana.</p>
+             <p> Principal , Vice Principal and all the faculties of the school would like to Wish you and your family a very Happy and safe Diwali.</p>
+             <p> Please be noted that School would be closed on between <strong> 30 Nov 2017 Thursday </strong> to <strong> 05 Dec 2017 Tuesday.</strong></p>
+          <div>   
+       </ion-content>
+
+      </ion-modal-view>

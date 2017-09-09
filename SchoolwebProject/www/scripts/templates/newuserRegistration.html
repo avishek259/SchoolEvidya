@@ -1,0 +1,39 @@
+ <ion-modal-view>
+
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">Registration</h1>
+          <button class="button button-clear button-primary" ng-click="userRegistration.hide()">Cancel</button>
+        </ion-header-bar>
+        <ion-content class="padding background" overflow-scroll="true" >
+
+        <div class="circleImage" ></div>
+       
+          <div class="center">
+            <h3>Registration</h3>
+         </div>  
+         <p class="strong fs-16 center">Please fill in the below details to register as a new user.</p>
+         <div class="list list-inset">
+          <label class="item item-input">
+              <input type="text" placeholder="First Name" ng-model="data.firstName">
+          </label>
+          <label class="item item-input">
+              <input type="text" placeholder="Last Name" ng-model="data.lastName">
+          </label>
+          <label class="item item-input">
+              <input type="text" placeholder="UserName" ng-model="data.lastName">
+          </label>
+          <label class="item item-input">
+              <input type="password" placeholder="Password" ng-model="data.password">
+          </label>
+          <label class="item item-input">
+              <input type="password" placeholder="Reconfirm Password" ng-model="data.password">
+          </label>
+           <label class="item item-input">
+              <input type="email" placeholder="Email (optional) " ng-model="data.password">
+          </label>
+        </div> 
+
+        <button class=" ml-10p button button-block button-calm width90p" >Register</button>
+       </ion-content>
+
+      </ion-modal-view>
