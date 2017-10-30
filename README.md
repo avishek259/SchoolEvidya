@@ -31,25 +31,33 @@ Contact :- hhamlani89@gmail.com
 
 DB : Details
 
-Sample :
-connectionName: schoolEVidhya_sample
-hostName: localhost (27.0.0.1:330)
-User : root
-pass : root
-schema : evidhyasample
+db : evidhya_db
+User : sa
+pass : Evidhya@123
 
 table : 
 
-CREATE TABLE `evidhyasample`.`users` (
-  `userid` INT NOT NULL,
-  `firstname` VARCHAR(45) NOT NULL,
-  `lastname` VARCHAR(45) NULL,
-  `password` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`userid`));
+CREATE TABLE user_registration (
+  parentID INT NOT NULL IDENTITY(1,1),
+  firstname VARCHAR(256) NOT NULL,
+  lastname VARCHAR(256) NULL,
+  username VARCHAR(256) NOT NULL,
+  password VARCHAR(256) NOT NULL,
+  emailid VARCHAR(45) NULL,
+  createddate DATETIME NULL,
+  userstatus VARCHAR(45) NULL DEFAULT 'inactive',
+  verificationstatus VARCHAR(45) NOT NULL DEFAULT 'pending',
+  PRIMARY KEY (parentID));
   
-  INSERT INTO `evidhyasample`.`users` (`userid`, `firstname`, `lastname`, `password`) VALUES ('101', 'phalgun', 'dandu', 'test@123');
-INSERT INTO `evidhyasample`.`users` (`userid`, `firstname`, `lastname`, `password`) VALUES ('102', 'Avi', 'shek', 'done@123');
 
+Hit register service using postman on http://localhost:8080/rest/users/register
+{
+  "firstName": "testFirst",
+  "lastName": "testLast",
+  "password": "testPass",
+  "userName": "testUser",
+  "emailId": "test@test.com"
+}
 
 http://localhost:8080/rest/users/all 
-res : [{"userId":101,"firstName":"phalgun","lastName":"dandu","password":"test@123"},{"userId":102,"firstName":"Avi","lastName":"shek","password":"done@123"}]
+res : [{"parentId":1,"firstName":"testFirst","lastName":"testLast","password":"testPass","userName":"testUser","emailId":"test@test.com","userStatus":"inactive","verificationStatus":"pending","createdDate":"2017-10-30 21:30:04.157"}]
